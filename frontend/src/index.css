@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 218 36% 95%;
+    --foreground: 222 53% 23%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 53% 23%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 53% 23%;
+
+    --primary: 36 91% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 218 36% 95%;
+    --secondary-foreground: 222 53% 23%;
+
+    --muted: 216 20% 91%;
+    --muted-foreground: 221 18% 50%;
+
+    --accent: 218 36% 95%;
+    --accent-foreground: 222 53% 23%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 36 91% 55%;
+
+    --radius: 0.625rem;
+
+    --navy: 222 53% 23%;
+    --navy-foreground: 0 0% 100%;
+
+    --sidebar-background: 222 53% 23%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 36 91% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 53% 30%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 222 53% 30%;
+    --sidebar-ring: 36 91% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  animation: ticker-scroll 30s linear infinite;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 24px rgba(26, 45, 90, 0.06), 0 1px 4px rgba(26, 45, 90, 0.04);
+  transition: box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card:hover {
+  box-shadow: 0 8px 32px rgba(26, 45, 90, 0.10), 0 2px 8px rgba(26, 45, 90, 0.06);
+  border-color: rgba(245, 166, 35, 0.25);
+}
+
+/* Glass card dark variant */
+.glass-card-dark {
+  background: rgba(26, 45, 90, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover lift */
+.hover-lift {
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(26, 45, 90, 0.10);
+}
+
+/* Scroll reveal */
+.sr-hidden {
+  opacity: 0;
+  transform: translateY(20px) scale(0.99);
+  filter: blur(4px);
+  transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 650ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 650ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sr-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Stagger children */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(3px);
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 500ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stagger-children.sr-visible > *:nth-child(1) { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 0ms; }
+.stagger-children.sr-visible > *:nth-child(2) { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 80ms; }
+.stagger-children.sr-visible > *:nth-child(3) { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 160ms; }
+.stagger-children.sr-visible > *:nth-child(4) { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 240ms; }
+.stagger-children.sr-visible > *:nth-child(5) { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 320ms; }
+.stagger-children.sr-visible > *:nth-child(6) { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 400ms; }

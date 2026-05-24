@@ -1,0 +1,98 @@
+# Node modules
+
+backend/node_modules/
+server/node_modules/
+
+# Environment variables
+
+backend/.env
+server/.env
+backend/.env.local
+server/.env.local
+backend/.env.development
+backend/.env.test
+backend/.env.production
+
+# Logs
+
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+
+coverage/
+
+# Dependency directories
+
+jspm_packages/
+
+# Optional npm cache directory
+
+.npm
+
+# Optional eslint cache
+
+.eslintcache
+
+# Mac system files
+
+.DS_Store
+
+# Windows system files
+
+Thumbs.db
+
+# IDE folders
+
+.vscode/
+.idea/
+
+# Temporary files
+
+*.tmp
+*.temp
+
+# Build output
+
+backend/dist/
+backend/build/
+
+# Database files (if using local database dumps)
+
+backend/*.sqlite
+backend/*.db
+
+# dotenv backup files
+
+backend/.env.backup
+
+# Node REPL history
+
+backend/.node_repl_history
+
+# package lock (optional, remove if you want reproducible installs)
+
+backend/package-lock.json
+
+
+server/package-lock.json
+
+
+gig_model/venv
+gig_model/_pycache_
+gig_model/_pycache_/
+gig_model/.env
+gig_model/venv/
+
+gig_model/__pycache__/
+gig_model/*.pyc
